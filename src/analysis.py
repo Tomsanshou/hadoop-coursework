@@ -151,6 +151,142 @@ class OrderAnalyzer:
         
         return analysis_results
     
+    def analyze_time_series(self) -> Dict:
+        """
+        Perform time series analysis on order data
+        对订单数据进行时间序列分析
+        
+        Returns:
+            Dictionary containing time series analysis results
+        """
+        self.logger.info("Performing time series analysis")
+        
+        # Ensure order_date is datetime
+        if 'order_date' not in self.df.columns:
+            raise ValueError("order_date column is required for time series analysis")
+        
+        # Create time-based features if they don't exist
+        if 'order_year' not in self.df.columns:
+            self.df['order_year'] = self.df['order_date'].dt.year
+        if 'order_month' not in self.df.columns:
+            self.df['order_month'] = self.df['order_date'].dt.month
+        if 'order_weekday' not in self.df.columns:
+            self.df['order_weekday'] = self.df['order_date'].dt.day_name()
+        
+        # Daily sales analysis
+        daily_sales = self.df.groupby(self.df['order_date'].dt.date).agg({
+            'total_amount': 'sum',
+            'order_id': 'count'
+        }).rename(columns={'order_id': 'order_count'})
+        
+        # Monthly sales analysis
+        monthly_sales = self.df.groupby([self.df['order_date'].dt.year, 
+                                       self.df['order_date'].dt.month]).agg({
+            'total_amount': 'sum',
+            'order_id': 'count'
+        }).rename(columns={'order_id': 'order_count'})
+        
+        # Weekly pattern analysis
+        weekly_pattern = self.df.groupby('order_weekday').agg({
+            'total_amount': ['sum', 'mean', 'count']
+        })
+        weekly_pattern.columns = ['total_revenue', 'avg_order_value', 'order_count']
+        
+        # Hourly pattern analysis (if hour information is available)
+        hourly_pattern = None
+        if 'order_hour' in self.df.columns:
+            hourly_pattern = self.df.groupby('order_hour').agg({
+                'total_amount': ['sum', 'mean', 'count']
+            })
+            hourly_pattern.columns = ['total_revenue', 'avg_order_value', 'order_count']
+        
+        # Calculate trends and growth rates
+        daily_growth = daily_sales['total_amount'].pct_change().fillna(0)
+        monthly_growth = monthly_sales['total_amount'].pct_change().fillna(0)
+        
+        # Seasonal analysis
+        seasonal_analysis = self.df.groupby('order_month').agg({
+            'total_amount': ['sum', 'mean', 'count']
+        })
+        seasonal_analysis.columns = ['total_revenue', 'avg_order_value', 'order_count']
+        
+        # Peak and low periods identification
+        peak_day = daily_sales['total_amount'].idxmax()
+        low_day = daily_sales['total_amount'].idxmin()
+        peak_month = seasonal_analysis['total_revenue'].idxmax()
+        low_month = seasonal_analysis['total_revenue'].idxmin()
+        
+        time_series_results = {
+            "daily_analysis": {
+                "avg_daily_revenue": float(daily_sales['total_amount'].mean()),
+                "max_daily_revenue": float(daily_sales['total_amount'].max()),
+                "min_daily_revenue": float(daily_sales['total_amount'].min()),
+                "peak_day": str(peak_day),
+                "low_day": str(low_day),
+                "daily_volatility": float(daily_sales['total_amount'].std())
+            },
+            "monthly_trends": {
+                "avg_monthly_growth": float(monthly_growth.mean()),
+                "max_monthly_growth": float(monthly_growth.max()),
+                "min_monthly_growth": float(monthly_growth.min()),
+                "growth_volatility": float(monthly_growth.std())
+            },
+            "weekly_patterns": {
+                "best_weekday": weekly_pattern['total_revenue'].idxmax(),
+                "worst_weekday": weekly_pattern['total_revenue'].idxmin(),
+                "weekend_vs_weekday_ratio": float(
+                    weekly_pattern.loc[['Saturday', 'Sunday'], 'total_revenue'].mean() /
+                    weekly_pattern.loc[['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 'total_revenue'].mean()
+                ) if all(day in weekly_pattern.index for day in ['Saturday', 'Sunday', 'Monday']) else 1.0
+            },
+            "seasonal_insights": {
+                "peak_season_month": int(peak_month),
+                "low_season_month": int(low_month),
+                "seasonal_variation_coefficient": float(seasonal_analysis['total_revenue'].std() / seasonal_analysis['total_revenue'].mean())
+            },
+            "trend_analysis": {
+                "overall_trend": "increasing" if daily_growth.mean() > 0 else "decreasing",
+                "trend_strength": abs(float(daily_growth.mean())),
+                "data_period": {
+                    "start_date": str(self.df['order_date'].min().date()),
+                    "end_date": str(self.df['order_date'].max().date()),
+                    "total_days": int((self.df['order_date'].max() - self.df['order_date'].min()).days + 1)
+                }
+            }
+        }
+        
+        # Add hourly analysis if available
+        if hourly_pattern is not None:
+            time_series_results["hourly_patterns"] = {
+                "peak_hour": int(hourly_pattern['total_revenue'].idxmax()),
+                "low_hour": int(hourly_pattern['total_revenue'].idxmin()),
+                "business_hours_performance": float(
+                    hourly_pattern.loc[9:17, 'total_revenue'].mean()
+                ) if len(hourly_pattern) >= 18 else 0.0
+            }
+        
+        return time_series_results
+    
+    def analyze_customers(self) -> Dict:
+        """
+        Alias for customer_analysis method
+        customer_analysis方法的别名
+        
+        Returns:
+            Dictionary containing customer analysis results
+        """
+        return self.customer_analysis()
+    
+    def analyze_products(self) -> Dict:
+        """
+        Alias for product_analysis method
+        product_analysis方法的别名
+        
+        Returns:
+            Dictionary containing product analysis results
+        """
+        return self.product_analysis()
+    
     def customer_analysis(self) -> Dict:
         """
         Perform customer analysis
@@ -401,7 +537,7 @@ class OrderAnalyzer:
             "top_insights": [
                 f"Most profitable category: {product_analysis['category_analysis']['most_profitable_category']}",
                 f"Most valuable customer segment: {customer_analysis['demographic_insights']['most_valuable_age_group']}",
-                f"Peak sales month: {analysis_results['time_analysis']['monthly_sales_summary']['best_month']}",
+                f"Peak sales month: {analysis_results['time_analysis']['seasonal_insights']['peak_season_month']}",
                 f"Repeat customer rate: {customer_analysis['customer_value_metrics']['repeat_customer_percentage']:.1f}%"
             ]
         }

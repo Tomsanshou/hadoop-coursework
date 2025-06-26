@@ -144,3 +144,159 @@
 2025-05-28 00:24:49,081 - __main__ - INFO - Analysis completed successfully! / 分析成功完成！
 2025-05-28 00:24:49,081 - __main__ - INFO - Project evaluation score: 86.12/100
 2025-05-28 00:24:49,081 - __main__ - INFO - 项目评估得分: 86.12/100
+2025-06-26 13:19:38,143 - __main__ - INFO - Starting E-commerce Order Analysis Project
+2025-06-26 13:19:38,175 - __main__ - INFO - 开始电商订单分析项目
+2025-06-26 13:19:38,175 - __main__ - INFO - Step 1: Data Processing / 步骤1：数据处理
+2025-06-26 13:19:38,201 - __main__ - INFO - Loading and cleaning data / 加载和清洗数据
+2025-06-26 13:19:38,355 - src.data_utils - INFO - Loaded 10000 records from E:\llh\hadoop-coursework\data\raw\sample_orders.csv
+2025-06-26 13:19:38,429 - src.data_utils - INFO - Starting enhanced data cleaning process
+2025-06-26 13:19:38,429 - src.data_utils - INFO - Converting data types...
+2025-06-26 13:19:38,451 - src.data_utils - INFO - Handling missing values...
+2025-06-26 13:19:38,456 - src.data_utils - INFO - Removed 0 duplicate orders
+2025-06-26 13:19:38,456 - src.data_utils - INFO - Detecting and removing outliers...
+2025-06-26 13:19:38,469 - src.data_utils - INFO - Removed 1038 outlier records
+2025-06-26 13:19:38,469 - src.data_utils - INFO - Performing data validation...
+2025-06-26 13:19:38,470 - src.data_utils - WARNING - Found 2071 records with inconsistent total_amount
+2025-06-26 13:19:38,471 - src.data_utils - INFO - Adding derived columns...
+2025-06-26 13:19:38,486 - src.data_utils - INFO - Enhanced data cleaning completed. Rows: 10000 -> 8962 (89.6% retained)
+2025-06-26 13:19:38,555 - src.data_utils - INFO - Data saved to E:\llh\hadoop-coursework\data\processed\cleaned_orders.csv
+2025-06-26 13:19:38,556 - __main__ - ERROR - Error occurred during analysis: 'overall_quality'
+2025-06-26 13:19:38,556 - __main__ - ERROR - 分析过程中发生错误: 'overall_quality'
+2025-06-26 13:20:35,672 - __main__ - INFO - Starting E-commerce Order Analysis Project
+2025-06-26 13:20:35,672 - __main__ - INFO - 开始电商订单分析项目
+2025-06-26 13:20:35,672 - __main__ - INFO - Step 1: Data Processing / 步骤1：数据处理
+2025-06-26 13:20:35,673 - __main__ - INFO - Loading and cleaning data / 加载和清洗数据
+2025-06-26 13:20:35,687 - src.data_utils - INFO - Loaded 10000 records from E:\llh\hadoop-coursework\data\raw\sample_orders.csv
+2025-06-26 13:20:35,704 - src.data_utils - INFO - Starting enhanced data cleaning process
+2025-06-26 13:20:35,704 - src.data_utils - INFO - Converting data types...
+2025-06-26 13:20:35,707 - src.data_utils - INFO - Handling missing values...
+2025-06-26 13:20:35,714 - src.data_utils - INFO - Removed 0 duplicate orders
+2025-06-26 13:20:35,714 - src.data_utils - INFO - Detecting and removing outliers...
+2025-06-26 13:20:35,716 - src.data_utils - INFO - Removed 1038 outlier records
+2025-06-26 13:20:35,716 - src.data_utils - INFO - Performing data validation...
+2025-06-26 13:20:35,716 - src.data_utils - WARNING - Found 2071 records with inconsistent total_amount
+2025-06-26 13:20:35,717 - src.data_utils - INFO - Adding derived columns...
+2025-06-26 13:20:35,725 - src.data_utils - INFO - Enhanced data cleaning completed. Rows: 10000 -> 8962 (89.6% retained)
+2025-06-26 13:20:35,771 - src.data_utils - INFO - Data saved to E:\llh\hadoop-coursework\data\processed\cleaned_orders.csv
+2025-06-26 13:20:35,773 - __main__ - INFO - Step 2: Data Analysis / 步骤2：数据分析
+2025-06-26 13:20:35,774 - src.analysis - INFO - OrderAnalyzer initialized with 8962 orders
+2025-06-26 13:20:35,774 - src.analysis - INFO - Calculating basic statistics
+2025-06-26 13:20:35,791 - src.analysis - INFO - Basic statistics calculated: 8962 orders, 4043277.81 total revenue
+2025-06-26 13:20:36,292 - __main__ - ERROR - Error occurred during analysis: 'OrderAnalyzer' object has no attribute 'analyze_time_series'
+2025-06-26 13:20:36,293 - __main__ - ERROR - 分析过程中发生错误: 'OrderAnalyzer' object has no attribute 'analyze_time_series'
+2025-06-26 13:21:52,854 - __main__ - INFO - Starting E-commerce Order Analysis Project
+2025-06-26 13:21:52,905 - __main__ - INFO - 开始电商订单分析项目
+2025-06-26 13:21:52,906 - __main__ - INFO - Step 1: Data Processing / 步骤1：数据处理
+2025-06-26 13:21:52,941 - __main__ - INFO - Loading and cleaning data / 加载和清洗数据
+2025-06-26 13:21:53,190 - src.data_utils - INFO - Loaded 10000 records from E:\llh\hadoop-coursework\data\raw\sample_orders.csv
+2025-06-26 13:21:53,276 - src.data_utils - INFO - Starting enhanced data cleaning process
+2025-06-26 13:21:53,277 - src.data_utils - INFO - Converting data types...
+2025-06-26 13:21:53,309 - src.data_utils - INFO - Handling missing values...
+2025-06-26 13:21:53,319 - src.data_utils - INFO - Removed 0 duplicate orders
+2025-06-26 13:21:53,319 - src.data_utils - INFO - Detecting and removing outliers...
+2025-06-26 13:21:53,333 - src.data_utils - INFO - Removed 1038 outlier records
+2025-06-26 13:21:53,334 - src.data_utils - INFO - Performing data validation...
+2025-06-26 13:21:53,334 - src.data_utils - WARNING - Found 2071 records with inconsistent total_amount
+2025-06-26 13:21:53,335 - src.data_utils - INFO - Adding derived columns...
+2025-06-26 13:21:53,371 - src.data_utils - INFO - Enhanced data cleaning completed. Rows: 10000 -> 8962 (89.6% retained)
+2025-06-26 13:21:53,438 - src.data_utils - INFO - Data saved to E:\llh\hadoop-coursework\data\processed\cleaned_orders.csv
+2025-06-26 13:21:53,439 - __main__ - INFO - Step 2: Data Analysis / 步骤2：数据分析
+2025-06-26 13:21:53,441 - src.analysis - INFO - OrderAnalyzer initialized with 8962 orders
+2025-06-26 13:21:53,442 - src.analysis - INFO - Calculating basic statistics
+2025-06-26 13:21:53,444 - src.analysis - INFO - Basic statistics calculated: 8962 orders, 4043277.81 total revenue
+2025-06-26 13:21:53,945 - src.analysis - INFO - Performing time series analysis
+2025-06-26 13:21:54,488 - __main__ - ERROR - Error occurred during analysis: 'OrderAnalyzer' object has no attribute 'analyze_customers'
+2025-06-26 13:21:54,488 - __main__ - ERROR - 分析过程中发生错误: 'OrderAnalyzer' object has no attribute 'analyze_customers'
+2025-06-26 13:22:24,439 - __main__ - INFO - Starting E-commerce Order Analysis Project
+2025-06-26 13:22:24,440 - __main__ - INFO - 开始电商订单分析项目
+2025-06-26 13:22:24,440 - __main__ - INFO - Step 1: Data Processing / 步骤1：数据处理
+2025-06-26 13:22:24,440 - __main__ - INFO - Loading and cleaning data / 加载和清洗数据
+2025-06-26 13:22:24,455 - src.data_utils - INFO - Loaded 10000 records from E:\llh\hadoop-coursework\data\raw\sample_orders.csv
+2025-06-26 13:22:24,467 - src.data_utils - INFO - Starting enhanced data cleaning process
+2025-06-26 13:22:24,468 - src.data_utils - INFO - Converting data types...
+2025-06-26 13:22:24,472 - src.data_utils - INFO - Handling missing values...
+2025-06-26 13:22:24,480 - src.data_utils - INFO - Removed 0 duplicate orders
+2025-06-26 13:22:24,480 - src.data_utils - INFO - Detecting and removing outliers...
+2025-06-26 13:22:24,482 - src.data_utils - INFO - Removed 1038 outlier records
+2025-06-26 13:22:24,482 - src.data_utils - INFO - Performing data validation...
+2025-06-26 13:22:24,483 - src.data_utils - WARNING - Found 2071 records with inconsistent total_amount
+2025-06-26 13:22:24,484 - src.data_utils - INFO - Adding derived columns...
+2025-06-26 13:22:24,492 - src.data_utils - INFO - Enhanced data cleaning completed. Rows: 10000 -> 8962 (89.6% retained)
+2025-06-26 13:22:24,539 - src.data_utils - INFO - Data saved to E:\llh\hadoop-coursework\data\processed\cleaned_orders.csv
+2025-06-26 13:22:24,541 - __main__ - INFO - Step 2: Data Analysis / 步骤2：数据分析
+2025-06-26 13:22:24,542 - src.analysis - INFO - OrderAnalyzer initialized with 8962 orders
+2025-06-26 13:22:24,542 - src.analysis - INFO - Calculating basic statistics
+2025-06-26 13:22:24,545 - src.analysis - INFO - Basic statistics calculated: 8962 orders, 4043277.81 total revenue
+2025-06-26 13:22:25,045 - src.analysis - INFO - Performing time series analysis
+2025-06-26 13:22:25,570 - src.analysis - INFO - Performing customer analysis
+2025-06-26 13:22:26,214 - src.analysis - INFO - Performing product analysis
+2025-06-26 13:22:26,758 - __main__ - INFO - Step 3: Data Visualization / 步骤3：数据可视化
+2025-06-26 13:22:26,759 - src.visualization - INFO - DataVisualizer initialized with 8962 records
+2025-06-26 13:22:26,760 - src.visualization - INFO - Creating enhanced sales trend visualization
+2025-06-26 13:22:30,806 - src.visualization - INFO - Enhanced sales trend chart saved to E:\llh\hadoop-coursework\output\charts\enhanced_sales_trend.html
+2025-06-26 13:22:30,814 - __main__ - WARNING - Visualization error: 
+Image export using the "kaleido" engine requires the Kaleido package,
+which can be installed using pip:
+
+    $ pip install --upgrade kaleido
+
+2025-06-26 13:22:31,116 - src.visualization - INFO - Creating customer analysis dashboard
+2025-06-26 13:22:31,662 - src.visualization - INFO - Customer analysis dashboard saved to E:\llh\hadoop-coursework\output\charts\customer_analysis_dashboard.html
+2025-06-26 13:22:31,963 - src.visualization - INFO - Creating product performance heatmap
+2025-06-26 13:22:32,069 - src.visualization - INFO - Product performance heatmap saved to E:\llh\hadoop-coursework\output\charts\product_performance_heatmap.html
+2025-06-26 13:22:32,370 - __main__ - INFO - Step 4: Generate Report / 步骤4：生成报告
+2025-06-26 13:22:32,371 - src.analysis - INFO - Generating comprehensive analysis report
+2025-06-26 13:22:32,383 - __main__ - ERROR - Error occurred during analysis: 'monthly_sales_summary'
+2025-06-26 13:22:32,384 - __main__ - ERROR - 分析过程中发生错误: 'monthly_sales_summary'
+2025-06-26 13:23:08,370 - __main__ - INFO - Starting E-commerce Order Analysis Project
+2025-06-26 13:23:08,371 - __main__ - INFO - 开始电商订单分析项目
+2025-06-26 13:23:08,371 - __main__ - INFO - Step 1: Data Processing / 步骤1：数据处理
+2025-06-26 13:23:08,372 - __main__ - INFO - Loading and cleaning data / 加载和清洗数据
+2025-06-26 13:23:08,390 - src.data_utils - INFO - Loaded 10000 records from E:\llh\hadoop-coursework\data\raw\sample_orders.csv
+2025-06-26 13:23:08,404 - src.data_utils - INFO - Starting enhanced data cleaning process
+2025-06-26 13:23:08,405 - src.data_utils - INFO - Converting data types...
+2025-06-26 13:23:08,408 - src.data_utils - INFO - Handling missing values...
+2025-06-26 13:23:08,413 - src.data_utils - INFO - Removed 0 duplicate orders
+2025-06-26 13:23:08,413 - src.data_utils - INFO - Detecting and removing outliers...
+2025-06-26 13:23:08,419 - src.data_utils - INFO - Removed 1038 outlier records
+2025-06-26 13:23:08,419 - src.data_utils - INFO - Performing data validation...
+2025-06-26 13:23:08,420 - src.data_utils - WARNING - Found 2071 records with inconsistent total_amount
+2025-06-26 13:23:08,421 - src.data_utils - INFO - Adding derived columns...
+2025-06-26 13:23:08,450 - src.data_utils - INFO - Enhanced data cleaning completed. Rows: 10000 -> 8962 (89.6% retained)
+2025-06-26 13:23:08,510 - src.data_utils - INFO - Data saved to E:\llh\hadoop-coursework\data\processed\cleaned_orders.csv
+2025-06-26 13:23:08,512 - __main__ - INFO - Step 2: Data Analysis / 步骤2：数据分析
+2025-06-26 13:23:08,513 - src.analysis - INFO - OrderAnalyzer initialized with 8962 orders
+2025-06-26 13:23:08,514 - src.analysis - INFO - Calculating basic statistics
+2025-06-26 13:23:08,519 - src.analysis - INFO - Basic statistics calculated: 8962 orders, 4043277.81 total revenue
+2025-06-26 13:23:09,021 - src.analysis - INFO - Performing time series analysis
+2025-06-26 13:23:09,533 - src.analysis - INFO - Performing customer analysis
+2025-06-26 13:23:10,052 - src.analysis - INFO - Performing product analysis
+2025-06-26 13:23:10,579 - __main__ - INFO - Step 3: Data Visualization / 步骤3：数据可视化
+2025-06-26 13:23:10,581 - src.visualization - INFO - DataVisualizer initialized with 8962 records
+2025-06-26 13:23:10,581 - src.visualization - INFO - Creating enhanced sales trend visualization
+2025-06-26 13:23:10,834 - src.visualization - INFO - Enhanced sales trend chart saved to E:\llh\hadoop-coursework\output\charts\enhanced_sales_trend.html
+2025-06-26 13:23:10,843 - __main__ - WARNING - Visualization error: 
+Image export using the "kaleido" engine requires the Kaleido package,
+which can be installed using pip:
+
+    $ pip install --upgrade kaleido
+
+2025-06-26 13:23:11,145 - src.visualization - INFO - Creating customer analysis dashboard
+2025-06-26 13:23:11,231 - src.visualization - INFO - Customer analysis dashboard saved to E:\llh\hadoop-coursework\output\charts\customer_analysis_dashboard.html
+2025-06-26 13:23:11,532 - src.visualization - INFO - Creating product performance heatmap
+2025-06-26 13:23:11,577 - src.visualization - INFO - Product performance heatmap saved to E:\llh\hadoop-coursework\output\charts\product_performance_heatmap.html
+2025-06-26 13:23:11,880 - __main__ - INFO - Step 4: Generate Report / 步骤4：生成报告
+2025-06-26 13:23:11,880 - src.analysis - INFO - Generating comprehensive analysis report
+2025-06-26 13:23:11,896 - src.analysis - INFO - Reports generated: E:\llh\hadoop-coursework\output\reports\analysis_report.json, E:\llh\hadoop-coursework\output\reports\analysis_report.md
+2025-06-26 13:23:11,897 - __main__ - INFO - Step 5: Project Evaluation / 步骤5：项目评估
+2025-06-26 13:23:11,898 - src.evaluation - INFO - Starting project evaluation
+2025-06-26 13:23:11,898 - src.evaluation - INFO - Evaluating data cleaning quality
+2025-06-26 13:23:11,935 - src.evaluation - INFO - Evaluating data analysis quality
+2025-06-26 13:23:11,936 - src.evaluation - INFO - Evaluating visualization quality
+2025-06-26 13:23:11,937 - src.evaluation - INFO - Evaluating code quality
+2025-06-26 13:23:11,939 - src.evaluation - INFO - Evaluating report writing quality
+2025-06-26 13:23:11,940 - src.evaluation - INFO - Evaluation reports saved: E:\llh\hadoop-coursework\output\reports\evaluation_report.json, E:\llh\hadoop-coursework\output\reports\evaluation_report.md
+2025-06-26 13:23:11,940 - src.evaluation - INFO - Project evaluation completed. Overall score: 89.12/100
+2025-06-26 13:23:11,941 - __main__ - INFO - Analysis completed successfully! / 分析成功完成！
+2025-06-26 13:23:11,942 - __main__ - INFO - Project evaluation score: 89.12/100
+2025-06-26 13:23:11,942 - __main__ - INFO - 项目评估得分: 89.12/100
